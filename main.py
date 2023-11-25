@@ -23,7 +23,7 @@ async def PlayTimeGenre(genero):  # Agregar anotación de tipo y descripción
     ***return:***      Ejemplo de retorno: {"Año de lanzamiento con más horas jugadas para Género X" : 2013}
     """
     try:
-        df = pd.read_csv('CSV\consulta1.csv', sep=',', encoding='UTF-8')  
+        df = pd.read_csv('CSV//consulta1.csv', sep=',', encoding='UTF-8')  
         df_filtrado = df[df[genero] == 1]
          # Agrupa por año y suma las horas de juego
         resumen = df_filtrado.groupby('release_date')['playtime_forever'].sum()
@@ -46,7 +46,7 @@ async def UserForGenre(genero: str):  # Agregar anotación de tipo y descripció
     ***return:***    Ejemplo de retorno: {"Usuario con más horas jugadas para Género X" : us213ndjss09sdf, "Horas jugadas":[{Año: 2013, Horas: 203}, {Año: 2012, Horas: 100}, {Año: 2011, Horas : 23}]}
     """
     try:
-        df = pd.read_csv('CSV\consulta1.csv', sep=',', encoding='UTF-8')  
+        df = pd.read_csv('CSV//consulta1.csv', sep=',', encoding='UTF-8')  
 
         df_filtrado = df[df[genero] == 1]
 
@@ -86,7 +86,7 @@ async def UsersRecommend(año: int):
     ***return:***    Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
     """
     try:
-        df3 = pd.read_csv('CSV\consulta3.csv', sep=',', encoding='UTF-8')
+        df3 = pd.read_csv('CSV//consulta3.csv', sep=',', encoding='UTF-8')
         df_filtrado = df3[df3['posted year'] == año] 
     
         # Agrupar por 'item_id' y contar los valores 2 en la columna 'sentimiento'
@@ -123,7 +123,7 @@ async def UsersWorstDeveloper(año: int):
     """
     try:
 
-        df4 = pd.read_csv('CSV\consulta4.csv', sep=',', encoding='UTF-8')
+        df4 = pd.read_csv('CSV//consulta4.csv', sep=',', encoding='UTF-8')
         df_filtrado = df4[df4['posted year'] == año] 
         # Agrupar por 'item_id' y contar los valores 2 en la columna 'sentimiento'
         conteo_sentimiento_0 = df_filtrado[df_filtrado['sentiment_analysis'] == 0].groupby('item_id').size()
@@ -156,7 +156,7 @@ async def sentiment_analysis(empresa: str):
     try:      
         # Seleccionamos las columnas que vamos a usar y cargamos el dataframe a partir del archivo csv
         columnas = ['user_id','item_id', 'sentiment_analysis']
-        df_users_reviews = pd.read_csv("CSV/australian_user_reviews.csv",usecols= columnas ,sep=",", encoding='UTF-8')
+        df_users_reviews = pd.read_csv("CSV//australian_user_reviews.csv",usecols= columnas ,sep=",", encoding='UTF-8')
     
         # eliminamos los valores NaN
         df_users_reviews.dropna(inplace=True)
@@ -165,7 +165,7 @@ async def sentiment_analysis(empresa: str):
 
         # Seleccionamos las columnas que vamos a usar y cargamos el dataframe a partir del archivo csv
         columnas = ['item_id', 'developer']
-        df_output_steam_games = pd.read_csv('CSV\output_steaam_games.csv', usecols=columnas, sep=',', encoding='UTF-8')
+        df_output_steam_games = pd.read_csv('CSV//output_steaam_games.csv', usecols=columnas, sep=',', encoding='UTF-8')
 
         # Unimos los dos dataframe
         df_merge = df_users_reviews.merge(df_output_steam_games, on='item_id')
@@ -195,3 +195,4 @@ async def sentiment_analysis(empresa: str):
         return {"error": str(e)}
     
 #---------- END POINT NRO 6 --------------
+
