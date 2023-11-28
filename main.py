@@ -1,13 +1,12 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Optional
-import pandas as pd
 from fastapi.responses import JSONResponse
 from fastapi import Response
 from fastapi.encoders import jsonable_encoder 
 import logging
 import gc
 import json
+import pandas as pd
+import numpy as np
 
 
 app = FastAPI()
@@ -196,3 +195,35 @@ async def sentiment_analysis(empresa: str):
     
 #---------- END POINT NRO 6 --------------
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+@app.get("/get_data_ep6/")
+async def recomendacion_juego(item: int):
+    df = pd.read_csv('CSV//consulta6.csv', sep=',', encoding='UTF-8')
+    
+    # Verifica si el item_id existe en el DataFrame
+    if item in df['item_id'].values:
+        # Obtén el título del juego para el item_id dado
+        titulo = df.loc[df['item_id'] == item, 'title'].values[0]
+        
+        # Calcula la matriz TF-IDF
+        vectorizer = TfidfVectorizer()
+        tfidf_matrix = vectorizer.fit_transform(df['title'])
+        
+        # Calcula la similitud de coseno entre todos los títulos
+        sim_scores = cosine_similarity(tfidf_matrix, tfidf_matrix)
+        
+        # Encuentra los índices de los juegos más similares (excluyendo el propio juego)
+        idx = df[df['title'] == titulo].index[0]
+        game_indices = sim_scores[idx].argsort()[-6:-1][::-1]
+        
+        # Obtiene los títulos de los juegos recomendados
+        juegos_recomendados = df.iloc[game_indices]['title'].tolist()
+        
+        return {
+            "Juego consultado": titulo,
+            "Juegos recomendados": juegos_recomendados
+        }
+    else:
+        return {"error": "El item_id no existe en el DataFrame."}
