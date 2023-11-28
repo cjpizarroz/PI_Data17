@@ -91,4 +91,7 @@ Sistema de recomendación item-item:
 
 En este mismo repositorio podrás encontrar algunos (hay repositorios con distintos sistemas de recomendación) [links de ayuda](https://github.com/HX-PRomero/PI_ML_OPS/raw/main/Material%20de%20apoyo.md). Recuerda que no son los unicos recursos que puedes utilizar!
 
+<br>
+***Contacto: Carlos Javier Pizarro  pizarrocarlosjavier@gmail.com***
+
 
