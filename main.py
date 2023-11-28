@@ -200,6 +200,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 @app.get("/get_data_ep6/")
 async def recomendacion_juego(item: int):
+    """
+    ***def recomendacion_juego( item_id: int) : Según el identificador del juego, se devuelve una lista con 5 juegos recomendados .***.<br>
+    ***parametro: item_id del juego ***       Ingrese el item_id para realizar la consulta.<br>
+    <br>***Para este punto, a solo efecto de realizar la consulta, solo se tomo el 10% de los datos debido a la limitacion de RENDER de 512KB***
+    """
     df = pd.read_csv('CSV//consulta6.csv', sep=',', encoding='UTF-8')
     
     # Verifica si el item_id existe en el DataFrame
