@@ -26,7 +26,7 @@ Realice un trabajo rápido de **`Data Engineer`** y consegui tener un **`MVP`** 
 
 **`Feature Engineering`**:  En el dataset *user_reviews* se incluyen reseñas de juegos hechos por distintos usuarios. Cree la columna ***'sentiment_analysis'*** aplicando análisis de sentimiento con NLP con la siguiente escala: el valor '0' si es malo, '1' si es neutral y '2' si es positivo. Esta nueva columna reemplazo la de user_reviews.review para facilitar el trabajo de los modelos de machine learning y el análisis de datos. A los valores nulos, le asigne el valor de `1`.
 
-**`Desarrollo API`**:   Se disponibilizo los datos de la empresa usando el framework ***FastAPI***.  Para la elaboración de las consultas.
+**`Desarrollo API`**:   Se disponibilizo los datos de la empresa usando el framework ***FastAPI***.  Para la elaboración de las consultas.<br>
 Las consultas solicitadas son las siguientes:
 
 + def **PlayTimeGenre( *`genero` : str* )**:
