@@ -20,22 +20,14 @@ Revise los datos y me di cuenta que la madurez de los mismos es nula :sob: ): Da
 
 Realice un trabajo rápido de **`Data Engineer`** y conseguir tener un **`MVP`** (_Minimum Viable Product_) para el cierre del proyecto! 
 
-<p align="center">
-<img src="https://github.com/HX-PRomero/PI_ML_OPS/raw/main/src/DiagramaConceptualDelFlujoDeProcesos.png"  height=500>
-</p>
+## **Propuesta de trabajo**
 
-<sub> Nota que aquí se reflejan procesos, no herramientas tecnológicas. Haz el ejercicio de entender qué herramienta del stack corresponde a cada parte del proceso<sub/>
+**`Transformaciones`**:  Se realizaron algunas transformaciones de datos. Me enfoque principalmente en leer el dataset con el formato correcto. Elimine las columnas que no necesito para responder las consultas o preparar el modelo de aprendizaje automático, y de esa manera optimizar el rendimiento de la API y el entrenamiento del modelo.
 
-## **Propuesta de trabajo (requerimientos de aprobación)**
+**`Feature Engineering`**:  En el dataset *user_reviews* se incluyen reseñas de juegos hechos por distintos usuarios. Cree la columna ***'sentiment_analysis'*** aplicando análisis de sentimiento con NLP con la siguiente escala: el valor '0' si es malo, '1' si es neutral y '2' si es positivo. Esta nueva columna reemplazo la de user_reviews.review para facilitar el trabajo de los modelos de machine learning y el análisis de datos. A los valores nulos, le asigne el valor de `1`.
 
-**`Transformaciones`**:  Para este MVP no se te pide transformaciones de datos(` aunque encuentres una motivo para hacerlo `) pero trabajaremos en leer el dataset con el formato correcto. Puedes eliminar las columnas que no necesitan para responder las consultas o preparar los modelos de aprendizaje automático, y de esa manera optimizar el rendimiento de la API y el entrenamiento del modelo.
-
-**`Feature Engineering`**:  En el dataset *user_reviews* se incluyen reseñas de juegos hechos por distintos usuarios. Debes crear la columna ***'sentiment_analysis'*** aplicando análisis de sentimiento con NLP con la siguiente escala: debe tomar el valor '0' si es malo, '1' si es neutral y '2' si es positivo. Esta nueva columna debe reemplazar la de user_reviews.review para facilitar el trabajo de los modelos de machine learning y el análisis de datos. De no ser posible este análisis por estar ausente la reseña escrita, debe tomar el valor de `1`.
-
-**`Desarrollo API`**:   Propones disponibilizar los datos de la empresa usando el framework ***FastAPI***. Las consultas que propones son las siguientes:
-
-<sub> Debes crear las siguientes funciones para los endpoints que se consumirán en la API, recuerden que deben tener un decorador por cada una (@app.get(‘/’)).<sub/>
-
+**`Desarrollo API`**:   Se disponibilizo los datos de la empresa usando el framework ***FastAPI***.  Para la elaboración de las consultas.
+Las consultas solicitadas son las siguientes:
 
 + def **PlayTimeGenre( *`genero` : str* )**:
     Debe devolver `año` con mas horas jugadas para dicho género.
@@ -68,11 +60,10 @@ Ejemplo de retorno: {'Valve' : [Negative = 182, Neutral = 120, Positive = 278]}
 
 
 > `Importante`<br>
-El MVP _tiene_ que ser una API que pueda ser consumida segun los criterios de [API REST o RESTful](https://rockcontent.com/es/blog/api-rest/) desde cualquier dispositivo conectado a internet. Algunas herramientas como por ejemplo, Streamlit, si bien pueden brindar una interfaz de consulta, no cumplen con las condiciones para ser consideradas una API, sin workarounds.
+Las consultas tienen que ser por intermedio de una API, para que pueda ser consumida segun los criterios de [API REST o RESTful](https://rockcontent.com/es/blog/api-rest/) desde cualquier dispositivo conectado a internet. 
 
 
-**`Deployment`**: Conoces sobre [Render](https://render.com/docs/free#free-web-services) y tienes un [tutorial de Render](https://github.com/HX-FNegrete/render-fastapi-tutorial) que te hace la vida mas fácil :smile: . También podrías usar [Railway](https://railway.app/), o cualquier otro servicio que permita que la API pueda ser consumida desde la web.
-
+**`Deployment`**: Se utilizo Render [Render](https://render.com/docs/free#free-web-services), para poder disponibilizar la api en internet
 <br/>
 
 **`Análisis exploratorio de los datos`**: _(Exploratory Data Analysis-EDA)_
