@@ -15,10 +15,10 @@
 
 ## Rol a desarrollar
 
-Trabajar como **`Data Scientist`** a partir de datos de  "Steam", una plataforma multinacional de videojuegos. 
-Revise los datos y me di cuenta que la madurez de los mismos es nula :sob: ): Datos anidados, de tipo raw, no hay procesos automatizados para la actualización de nuevos productos, entre otras cosas… 
+Trabajar como **`Data Scientist`** a partir de datos de  "Steam", una plataforma multinacional de videojuegos. <br>
+Revise los datos y me di cuenta que la madurez de los mismos es nula :sob: : Datos anidados, de tipo raw, no hay procesos automatizados para la actualización de nuevos productos, entre otras cosas… 
 
-Realice un trabajo rápido de **`Data Engineer`** y conseguir tener un **`MVP`** (_Minimum Viable Product_) para el cierre del proyecto! 
+Realice un trabajo rápido de **`Data Engineer`** y consegui tener un **`MVP`** (_Minimum Viable Product_) para el cierre del proyecto! 
 
 ## **Propuesta de trabajo**
 
